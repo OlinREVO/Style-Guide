@@ -43,3 +43,44 @@ default:
     break;
 }
 ```
+
+Braces
+------
+
+The opening brace goes on the same line as the statement that opens the block.
+Having only a single `{` on a line is a waste of a perfectly good line. 
+A single `}` on a line, however, isn't a waste of a line, in breaks up the
+code nicely. Please add a space before the opening brace; It's not by any
+means essential, but it looks pretty.
+
+```c
+int squre(int x) {
+    return x * x;
+}
+```
+
+Don't use one-liner conditionals, unless you know that you will _never ever_
+need to add to that branch. The following makes sense:
+
+```c
+if (x > y)
+    return 1;
+else
+    return 0;
+```
+
+But this does not. Maybe you'll find you need to preprocess x one day.
+
+```c
+if (x == 17) 
+    doSomething(x);
+```
+
+In `do while` loops, the `while` goes one space after the closing brace:
+
+```c
+do {
+    value = readSensor();
+} while (value > 255);
+```
+
