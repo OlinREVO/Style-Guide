@@ -110,7 +110,12 @@ Names
 The world on an AVR is tiny. There's no need for globally unique names like
 `org.olinrevo.wheelspeed.node.rpm`. Keep things short, but understandable,
 like, `counter`, `value`, or `tmp`. Often, it makes sense to use
-single-character names for function parameters, such as `power(b, e)`. If
-you need a long name, use lowercase for the first word, and start each 
+single-character names for function parameters, such as `power(b, e)`. 
+
+If you need a long name, use lowercase for the first word, and start each 
 subsequent word with a capital letter, such as, `readSensor` or 
 `sendCANMessage`.
+
+Preprocessor macros should be in all uppercase, with underscores between
+words, like `FREQ_OFFSET`
+
