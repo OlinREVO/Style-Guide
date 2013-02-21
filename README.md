@@ -85,7 +85,7 @@ do {
 ```
 
 Expressions
-------
+-----------
 
 Please keep a reasonable amount of spaces in your expressions. One on each
 side of a binary operator is about right. Also, it doesn't hurt to use a bit
@@ -103,3 +103,14 @@ Hard to Read:
 ```c
 value=readSensor()/dt*drift+calibration;
 ```
+
+Names
+-----
+
+The world on an AVR is tiny. There's no need for globally unique names like
+`org.olinrevo.wheelspeed.node.rpm`. Keep things short, but understandable,
+like, `counter`, `value`, or `tmp`. Often, it makes sense to use
+single-character names for function parameters, such as `power(b, e)`. If
+you need a long name, use lowercase for the first word, and start each 
+subsequent word with a capital letter, such as, `readSensor` or 
+`sendCANMessage`.
