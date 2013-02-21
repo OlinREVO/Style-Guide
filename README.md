@@ -119,3 +119,22 @@ subsequent word with a capital letter, such as, `readSensor` or
 Preprocessor macros should be in all uppercase, with underscores between
 words, like `FREQ_OFFSET`
 
+Datatypes
+---------
+
+Generally, stick to descriptive type names like `int`, `long int`, or `float`.
+That said, we're working with microprocessors; we're close enough to the
+hardware that we often do care about how many bits are in our integers. If
+you're just writing math, or some other high level code, use the standard C 
+types. If you're interfacing the outside world, writing bitmaps, working
+with registers, or anything else where you know exactly how many bits you need
+use the exact-width integers available in `inttypes.h`.
+
+If you `#include <inttypes.h>`, you have access to the `intN_t` and `uintN_t`
+types. Each of these types provides a signed integer (`intN_t`) or unsigned 
+integer (`intN_t`), that is exactly N bits wide, where N is 8, 16, 32, or 64.
+
+The AVR is an 8 bit processor. If you're working with registers, you'll be
+using `uint8_t` a lot. We recommend using it for every variable that may
+get written to a register.
+
