@@ -84,3 +84,22 @@ do {
 } while (value > 255);
 ```
 
+Expressions
+------
+
+Please keep a reasonable amount of spaces in your expressions. One on each
+side of a binary operator is about right. Also, it doesn't hurt to use a bit
+more than the minimum number of parenthesis, just so you, the complier, and
+everyone else are clear on the order of operations.
+
+Good:
+
+```c
+value = ((readSensor() / dt) * drift)) + calibration;
+```
+
+Hard to Read:
+
+```c
+value=readSensor()/dt*drift+calibration;
+```
