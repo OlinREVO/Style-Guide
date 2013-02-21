@@ -54,7 +54,7 @@ code nicely. Please add a space before the opening brace; It's not by any
 means essential, but it looks pretty.
 
 ```c
-int squre(int x) {
+int square(int x) {
     return x * x;
 }
 ```
