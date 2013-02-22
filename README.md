@@ -139,3 +139,35 @@ using `uint8_t` a lot. We recommend using it for every variable that may
 get written to a register. (Especially since `avr/io.h` defines most registers
 as `uint8_t`).
 
+Registers and Bits
+------------------
+
+If you just want to do math in a vacuum, you can probably get by without ever
+using a register. But in real life, you'll need to write to and read from
+registers. The AVR design philosophy is to control every peripheral on the
+chip with a memory-mapped register.
+
+The header `avr/io.h` is full of preprocessor magic to define names for every
+register on the chip you're using. (It figures out which AVR you're using from
+the `-mmcu` flag to the AVR GCC.) Use them. `PORTB` is much more 
+understandable than `0x05`.
+
+Often, you'll need to write to specific control bits. For registers that have
+a straight-forward 1:1 mapping, like `PORTB` or `DDRB`, it generally makes
+sense to read and write literally, `DDRB = 0xd3;`, or `PORTB = 1 << 4;`. For
+everything else, use the `_BV()` macro and bit names from`avr/io.h`. It 
+converts a bit name to a bit mask. Using names makes it super easy to see what
+bits you meant to set, since you can just look the names up in your chip's
+manual.
+
+Good:
+
+```c
+TCCR1B = (_BV(CS12) | _BV(CS10));
+```
+
+No idea what this is doing:
+
+```c
+TCCR1B = 0x03;
+```
