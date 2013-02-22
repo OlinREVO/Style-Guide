@@ -136,5 +136,6 @@ integer (`intN_t`), that is exactly N bits wide, where N is 8, 16, 32, or 64.
 
 The AVR is an 8 bit processor. If you're working with registers, you'll be
 using `uint8_t` a lot. We recommend using it for every variable that may
-get written to a register.
+get written to a register. (Especially since `avr/io.h` defines most registers
+as `uint8_t`).
 
