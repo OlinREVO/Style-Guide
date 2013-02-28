@@ -119,6 +119,22 @@ subsequent word with a capital letter, such as, `readSensor` or
 Preprocessor macros should be in all uppercase, with underscores between
 words, like `FREQ_OFFSET`
 
+Comments
+--------
+
+Comments are never _required._ But you should put a line above every function
+or macro that explains what it does. Also throw a comment on the line above
+any line of code that's not immediately obvious what it does. Don't just
+restate the variable names, explain it.
+
+```c
+/* Setup and start the timer */
+void startTimer() {
+    /* Turn on Timer/Counter 1 with a 1/1024 prescalar */
+    TCCR1B = (_BV(CS12) | _BV(CS10));
+}
+```
+
 Datatypes
 ---------
 
