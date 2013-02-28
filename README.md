@@ -181,7 +181,7 @@ reasonable, consider using preprocessor macros instead. If it gets any longer
 than 3 lines, use a function or a subroutine instead.
 
 ```c
-#define SET_PORTB_BIT(bit) (PORTB = (1 << bit))
+#define SET_PORTB_BIT(bit) (PORTB |= (1 << bit))
 
 SET_PORTB_BIT(7);
 ```
