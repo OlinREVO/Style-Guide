@@ -139,6 +139,15 @@ using `uint8_t` a lot. We recommend using it for every variable that may
 get written to a register. (Especially since `avr/io.h` defines most registers
 as `uint8_t`).
 
+A note on floating point numbers. The AVR almost universally lacks a floating
+point processor. The AVR libc provides a nice software floating point library,
+but it's relatively slow and costs nearly 3k of flash. It will be imported
+automatically if you declare a `float` or `double` number. Try to avoid this
+if you can. Your code will run faster and lighter if you can find a way to
+make things work using integer math or fixed-point notation. Try multiplying
+the units you thought needed to be fractional be a factor of 1000 or 1024.
+That'll probably give you enough resolution.
+
 Registers and Bits
 ------------------
 
