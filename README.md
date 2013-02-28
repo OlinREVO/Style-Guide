@@ -171,3 +171,28 @@ No idea what this is doing:
 ```c
 TCCR1B = 0x03;
 ```
+
+Preprocessor Macros
+-------------------
+
+The AVR has extremely limited RAM, often as low as 1k. If you find yourself
+writing 1-3 line convenience functions to save typing and make you code more
+reasonable, consider using preprocessor macros instead. If it gets any longer
+than 3 lines, use a function or a subroutine instead.
+
+```c
+#define SET_PORTB_BIT(bit) (PORTB = (1 << bit))
+
+SET_PORTB_BIT(7);
+```
+
+Generally, we prefer literals to constants. The pointers you would need to
+access a constant are generally going to be longer (bitwise) than the constant
+itself. But it gets ungainly when you need to type the same CPU frequency over
+and over. So use a preprocessor macro.
+
+```c
+#define SENSOR_OFFSET 78
+
+value = readSensor() + SENSOR_OFFSET;
+```
